@@ -1,13 +1,14 @@
-require "rspec"
-require 'bundler/setup'
-require_relative  '../db/setup'
-require_relative "../models/page"
+require_relative "spec_helper"
 
 describe Page do
 
+	before(:each) do
+		Page.delete_all
+	end
+
 	it "should know if it's at the end of the road" do
-		subject.conclusion = true
-		subject.end_of_road?.should eq(true)
+		page = Page.create(conclusion: true)
+		page.conclusion?.should be_true
 	end
 
 	it "should have awesome content" do
