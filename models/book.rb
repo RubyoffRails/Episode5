@@ -18,4 +18,7 @@ class Book
 		current_page.conclusion?
 	end
 
+  def winner?
+    current_page.winner == true
+  end
 end

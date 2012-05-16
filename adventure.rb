@@ -9,12 +9,14 @@ page = Page.create(starting_point: true, content: "You wake up on a road. It's f
 Page.create(conclusion: true, 
             parent_id: page.id, 
             content: "Go into the forest",
-            preview: "It's dark... you have half a bacon sandwich left... and you need to pee, but you keep only to discover.")
+            preview: "It's dark... you have half a bacon sandwich left... and you need to pee, but you keep only to discover.",
+            winner: false)
 
 Page.create(conclusion: true,
             parent_id: page.id,
             content: "Walk down the road",
-            preview: "It's cold... you have no sandwich left... but you see a light and discover...")
+            preview: "It's cold... you have no sandwich left... but you see a light and discover...",
+            winner: true)
 
 book = Book.new(page)
 
@@ -36,9 +38,8 @@ until book.complete_game? do
   if input == "B"
     puts "A magnificient magic Ruby." 
   else 
-    puts "Three letters enscribed on an ancient tombstone... 'P H P'. Lightning strikes."
+    puts "Three letters enscribed on an ancient tombstone... 'PHP'. Lightning strikes."
   end
-
 end
 
 puts "------------------------------------------"
@@ -49,8 +50,9 @@ puts "|                                        |"
 puts "|                                        |"
 puts "------------------------------------------"
 
+if book.current_page.winner?
+  puts "You WON!"
+else
+  puts "You DEAD!"
+end
 
-puts book.current_page.content	
-
-
-puts "hope you won!"

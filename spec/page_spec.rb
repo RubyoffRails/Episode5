@@ -40,4 +40,9 @@ describe Page do
 		Page.starting_point.should eq(the_page)
 	end
 
+  it "should know whether it's a winning page or not" do
+    page = Page.create(winner: true) 
+    Page.find(page.id).winner.should be_true
+  end
+
 end
