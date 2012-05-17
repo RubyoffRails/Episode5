@@ -4,11 +4,9 @@ require 'bundler/setup'
 require_relative 'db/setup'
 require_relative 'models/page'
 require_relative 'models/book'
+require_relative 'db/seed' # lesson learned: this has to be placed below the page/book models. 
 
-page = Page.create(starting_point: true, content: "You wake up on a road. It's foggy and dampy. In your bag is 30 gold pieces and a bacon sandwich. Which do you choose?")
-Page.create(conclusion: true, parent_id: page.id, content: "Go into the forest")
-Page.create(conclusion: true, parent_id: page.id, content: "Walk down the road")
-
+page = Page.all.first # shouldn't I be able to leave this out and let the page variable be set in the seed file?
 book = Book.new(page)
 
 until book.complete_game? do
@@ -18,9 +16,30 @@ until book.complete_game? do
 	puts "  - [#{book.current_page.options.last.content}]"
 	puts "What do you want to do? Enter A or B"
 	
-	book.input( gets )
+  input = gets.chomp.upcase
+  book.answer(input)
+  
+  puts "You're about to #{book.current_page.content}"
+  puts "Suddenly you see a PREVIEW of you life flash before you." 
+  puts "#{book.current_page.preview}"
+
+  if book.current_page.ruby?
+    puts "A magnificient Ruby."
+    puts "It asks you a question:"
+    puts "MINSWAN: Yes or no?"
+  else
+    puts "Three letters enscribed on an ancient tombstone... 'PHP'."
+    puts "You hear a voice, asking you..."
+    puts "PHP - rest in peace! Yes or no?"
+  end
+
+  puts "What do you say? (Y/N)"
+
+  input = gets.chomp.upcase
+  book.answer_two(input)
 
 end
+
 puts "------------------------------------------"
 puts "|                                        |"
 puts "|                                        |"
@@ -29,7 +48,9 @@ puts "|                                        |"
 puts "|                                        |"
 puts "------------------------------------------"
 
+if book.current_page.winner?
+  puts "You WON!"
+else
+  puts "You DEAD!"
+end
 
-puts book.current_page.content	
-
-puts "hope you won!"

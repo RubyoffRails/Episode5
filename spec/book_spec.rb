@@ -1,7 +1,7 @@
 require_relative "spec_helper"
 
 describe Book do
-	let!(:page) {Page.create(starting_point: true)}
+	let!(:page) {Page.create(starting_point: true, winner: true)}
 	subject { Book.new(page) }
 
 	it "should have a page" do
@@ -12,13 +12,13 @@ describe Book do
 		let!(:option_a) { Page.create(parent_id: page.id)}
 		let!(:option_b) { Page.create(parent_id: page.id)}
 
-		it "should receive input and opens page" do
-			subject.input("A")
-			subject.current_page.should eq(option_a)
+		it "should receive answer and set ruby to true" do
+			subject.answer("A")
+			subject.current_page.ruby.should be_true
 		end
-		it "should receive input and opens page" do
-			subject.input("B")
-			subject.current_page.should eq(option_b)
+		it "should receive answer and set php to true" do
+			subject.answer("B")
+			subject.current_page.php.should be_true
 		end
 
 	end
@@ -29,5 +29,10 @@ describe Book do
 			subject.stub(:current_page) { stub(:conclusion? => true)}
 			subject.complete_game?.should be_true
 		end
+
+    it "There should be a winner" do
+      subject.winner?.should be_true
+    end
 	end
+
 end
