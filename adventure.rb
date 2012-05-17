@@ -17,18 +17,27 @@ until book.complete_game? do
 	puts "What do you want to do? Enter A or B"
 	
   input = gets.chomp.upcase
-	book.input( input )
+  book.answer(input)
   
- 
   puts "You're about to #{book.current_page.content}"
-  puts "Suddenly you see a PREVIEW of you life flash before you.\n#{book.current_page.preview}." 
-           
+  puts "Suddenly you see a PREVIEW of you life flash before you." 
+  puts "#{book.current_page.preview}"
 
-  if input == "B"
-    puts "A magnificient magic Ruby." 
-  else 
-    puts "Three letters enscribed on an ancient tombstone... 'PHP'. Lightning strikes."
+  if book.current_page.ruby?
+    puts "A magnificient Ruby."
+    puts "It asks you a question:"
+    puts "MINSWAN: Yes or no?"
+  else
+    puts "Three letters enscribed on an ancient tombstone... 'PHP'."
+    puts "You hear a voice, asking you..."
+    puts "PHP - rest in peace! Yes or no?"
   end
+
+  puts "What do you say? (Y/N)"
+
+  input = gets.chomp.upcase
+  book.answer_two(input)
+
 end
 
 puts "------------------------------------------"

@@ -7,6 +7,8 @@ class CreatesPage < ActiveRecord::Migration
 			t.boolean :starting_point, default: false
 			t.boolean :conclusion, default: false
       t.boolean :winner, default: false
+      t.boolean :ruby, default: false
+      t.boolean :php, default: false
 		end
 	end
 end

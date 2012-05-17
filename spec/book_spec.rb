@@ -12,13 +12,13 @@ describe Book do
 		let!(:option_a) { Page.create(parent_id: page.id)}
 		let!(:option_b) { Page.create(parent_id: page.id)}
 
-		it "should receive input and opens page" do
-			subject.input("A")
-			subject.current_page.should eq(option_a)
+		it "should receive answer and set ruby to true" do
+			subject.answer("A")
+			subject.current_page.ruby.should be_true
 		end
-		it "should receive input and opens page" do
-			subject.input("B")
-			subject.current_page.should eq(option_b)
+		it "should receive answer and set php to true" do
+			subject.answer("B")
+			subject.current_page.php.should be_true
 		end
 
 	end
