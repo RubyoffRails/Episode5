@@ -33,8 +33,7 @@ describe Page do
 	it "should not be a conclusion by default" do
 		Page.create.conclusion.should eq(false)
 	end
-
-
+	
 	it "should have a starting point" do
 		the_page = Page.create(starting_point: true)
 		Page.starting_point.should eq(the_page)
