@@ -1,3 +1,23 @@
+1 page nil
+	2 page 1
+		6 page 2
+		7 page 2
+	3 page 1
+		4 page 3
+		5 page 3
+		
+have parent, want child
+
+parent id = 3
+where :parent_id = 3
+
+
+have child, want parents
+
+child id = 5
+
+where :childs_parent_id = id
+
 Episode 5 - Choose Your Own Adventure
 =====================================
 

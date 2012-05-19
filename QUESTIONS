@@ -1,0 +1,6 @@
+1. What is the difference between "rake" and "bundle exec rake"?
+
+2. Why do calls inside a spec to subject.whatever work without subject being declared?
+
+
+
