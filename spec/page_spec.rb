@@ -16,17 +16,6 @@ describe Page do
 		Page.find(page.id).content.should eq("The fox and hound get along")
 	end
 
-	context "#options" do
-		subject {Page.create}
-		let(:option_a) {Page.create(parent_id: subject.id)  }
-		let(:option_b) {Page.create(parent_id: subject.id)  }
-		let(:option_c) {Page.create(parent_id: subject.id)  }
-
-		it "should have options for the next pages" do
-			subject.options.should eq([option_a, option_b])
-		end
-	end
-
 	it "should not be a starting point by default" do
 		Page.create.starting_point.should eq(false)
 	end

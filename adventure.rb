@@ -17,10 +17,8 @@ until book.complete_game? do
 	puts "What do you want to do? Enter A or B"
 	
 	book.input(gets)
-  puts book.current_page.content	
-  result = true if book.current_page.winner? == true
+  puts "Adventure complete. You #{book.current_page.winner? ? 'Won!' : 'Lost.'}" if book.complete_game? 
 end
 
 
 
-puts "Adventure complete. You #{result ? 'Won!' : 'Lost.'}"
