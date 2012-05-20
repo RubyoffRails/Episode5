@@ -9,29 +9,29 @@ choice_1a = Page.create(preview_a: "Plunge into the woods",
                         preview_b: "Run down the road toward to bridge",
                         content: "You put the 30 gold pieces in your pocket and toss the bacon sandwich on the ground. A fair maiden emerges from the woods, grabs your sandwich and takes off. You've got to stop her! Where will you go?")
 
-choice_1b = Page.create(preview_a: "I think she's headed for the bubbling brook, after her!",
+choice_1b = Page.create(preview_a: "I think she's heading for the bubbling brook, after her!",
                         preview_b: "Climb the nearest tree and see if you can spot her.",                        
                         content: "As you toss the gold on the ground and begin to eat your bacon sandwich, a fair maiden emerges from the woods and says 'm'lord, can I have the rest of that sandwich?' Before you answer, she grabs the sandwich and takes off. She must be stopped! Where will you go?")
 
-choice_2a = Page.create(preview_a: "Preview A for 2a",
-                        preview_b: "Preview B for 2a",
-                        content: "You plunge into the woods. ")
+choice_2a = Page.create(preview_a: "Well, if the woods didn't work, maybe she's hiding under that bridge down the road.",
+                        preview_b: "She is seriously hiding under the bridge down the road. I mean, who checks the woods first? Really. Just go look under the bridge.",
+                        content: "You plunge into the woods. There are stickers everywhere. This is not worth a chunky bacon sandwich. Where do you go next?")
 
-choice_2b = Page.create(preview_a: "Preview A for 2b",
-                        preview_b: "Preview B for 2b",
-                        content: "Content for choice 2b")
+choice_2b = Page.create(preview_a: "You see the maiden! She's under the bridge. Pounce!",
+                        preview_b: "Jump in the warp machine, see a command prompt, $>gem install find_maiden\n\n$>irb m = Maiden.new\n\n$>m.throw_net_over_and_get_back_sandwhich",
+                        content: "You run down the road and come to a bridge.")
 
-choice_2c = Page.create(preview_a: "Preview A for 2c",
-                        preview_b: "Preview B for 2c",
-                        content: "Content for choice 2c")
+choice_2c = Page.create(preview_a: "Blink twice using your Google glasses to issue the 'Get GPS coordinates of Fair Maiden from your circling UAV' command.",
+                        preview_b: "Charge the bridge.",
+                        content: "You hear a bubbling brook and follow the sound down the road. You can see a bridge ahead and bread crumbs lay at your feet. What do you do?")
 
-choice_2d = Page.create(preview_a: "Preview A for 2d",
-                        preview_b: "Preview B for 2d",
-                        content: "Content for choice 2d")
+choice_2d = Page.create(preview_a: "Run quickly to the bridge.",
+                        preview_b: "Run at Ent speed for the bridge.",
+                        content: "The tree you try to climb is one of those Ents from Lord of the Rings. He ain't happy. After 20 minutes of talking, he tells you to run down to the bridge.")
 
 choice_3 =  Page.create(conclusion: true,
                         winner: true,
-                        content: "You find the maiden, take your sandwich and ride off into the sunset.")
+                        content: "You find the maiden, take back your sandwich and ride off into the sunset.")
 
 start_page.option_a_id = choice_1a.id
 start_page.option_b_id = choice_1b.id
