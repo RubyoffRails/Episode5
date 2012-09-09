@@ -40,4 +40,13 @@ describe Page do
 		Page.starting_point.should eq(the_page)
 	end
 
+	it "should not be a winner by default" do
+		Page.create.winner.should eq(false)
+	end
+
+	it "should have a winner" do
+		the_page = Page.create(winner: true)
+		Page.winners.should eq([the_page])
+	end
+
 end
