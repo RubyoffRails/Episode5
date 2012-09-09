@@ -4,11 +4,9 @@ require 'bundler/setup'
 require_relative 'db/setup'
 require_relative 'models/page'
 require_relative 'models/book'
+require_relative 'db/seed'
 
-page = Page.create(starting_point: true, content: "You wake up on a road. It's foggy and dampy. In your bag is 30 gold pieces and a bacon sandwich. Which do you choose?")
-Page.create(conclusion: true, parent_id: page.id, preview: "Go into the forest", content: "You have stumbled on the Shield of Awesomeness - yeah!", winner: true)
-Page.create(conclusion: true, parent_id: page.id, preview: "Walk down the road", content: "You fell off the pier. Boo.")
-
+page = Page.starting_point
 book = Book.new(page)
 
 until book.complete_game? do
