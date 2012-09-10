@@ -9,7 +9,7 @@ class Page < ActiveRecord::Base
   end
 
 	def options
-		Page.where(:parent_id => id).limit(2)
+		Page.find([option_id_a, option_id_b])
 	end
 
 end

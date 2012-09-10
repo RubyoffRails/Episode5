@@ -9,8 +9,9 @@ describe Book do
 	end
 
 	describe "#input" do
-		let!(:option_a) { Page.create(parent_id: page.id)}
-		let!(:option_b) { Page.create(parent_id: page.id)}
+		let(:option_a) { Page.create()}
+		let(:option_b) { Page.create()}
+		let(:page) { Page.create(option_id_a: option_a.id, option_id_b: option_b.id)}
 
 		it "should receive input and opens page" do
 			subject.input("A")
