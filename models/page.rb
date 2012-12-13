@@ -5,7 +5,6 @@ class Page < ActiveRecord::Base
 	end
 
 	def options
-		options = Page.find([option_a_id, option_b_id])
-    option_ids = options.map { |o| o.id }
+    [option_a_id, option_b_id]
 	end
 end
