@@ -11,8 +11,8 @@ book = Book.new(page)
 
 until book.complete_game? do
 	puts book.current_page.content
-  option_a = book.current_page.options.first
-  option_b =  book.current_page.options.last
+  option_a = Page.find(book.current_page.options.first)
+  option_b =  Page.find(book.current_page.options.last)
 
 	puts "Your options: "
 	puts "A - #{option_a.preview}"

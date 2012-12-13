@@ -3,10 +3,11 @@ class CreatesPage < ActiveRecord::Migration
 		create_table :pages do |t|
       t.text :preview
 			t.text :content
-			t.integer :parent_id
 			t.boolean :starting_point, default: false
 			t.boolean :conclusion, default: false
       t.boolean :winner, default: false
+      t.integer :option_a_id
+      t.integer :option_b_id
 		end
 	end
 end

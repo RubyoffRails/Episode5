@@ -5,7 +5,7 @@ class Page < ActiveRecord::Base
 	end
 
 	def options
-		Page.where(:parent_id => id).limit(2)
+		options = Page.find([option_a_id, option_b_id])
+    option_ids = options.map { |o| o.id }
 	end
-
 end

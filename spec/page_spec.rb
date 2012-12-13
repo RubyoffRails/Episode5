@@ -6,6 +6,7 @@ describe Page do
 		Page.delete_all
 	end
 
+
 	it "should know if it's at the end of the road" do
 		page = Page.create(conclusion: true)
 		page.conclusion?.should be_true
@@ -33,13 +34,13 @@ describe Page do
   end
 
 	context "#options" do
-		subject {Page.create}
-		let(:option_a) {Page.create(parent_id: subject.id)  }
-		let(:option_b) {Page.create(parent_id: subject.id)  }
-		let(:option_c) {Page.create(parent_id: subject.id)  }
+
+		let(:option_a) { Page.create }
+		let(:option_b) { Page.create }
+    let(:page) { Page.create(option_a_id: option_a.id, option_b_id: option_b.id)  }
 
 		it "should have options for the next pages" do
-			subject.options.should eq([option_a, option_b])
+			expect(page.options).to eq [option_a.id, option_b.id]
 		end
 	end
 
