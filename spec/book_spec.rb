@@ -16,10 +16,16 @@ describe Book do
 			subject.input("A")
 			subject.current_page.should eq(option_a)
 		end
+
 		it "should receive input and opens page" do
 			subject.input("B")
 			subject.current_page.should eq(option_b)
 		end
+
+    it "should still work with lower case inputs" do
+      subject.input("a")
+      subject.current_page.should eq(option_a)
+    end
 
 	end
 
