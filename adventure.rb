@@ -14,8 +14,8 @@ book = Book.new(page)
 until book.complete_game? do
 	puts book.current_page.content
 	puts "your options: "
-	puts "A - [#{book.current_page.options.first.preview}]"
-	puts "B - [#{book.current_page.options.last.preview}]"
+	puts "A - [#{book.current_page.option_a.preview}]"
+	puts "B - [#{book.current_page.option_b.preview}]"
 	puts "What do you want to do? Enter A or B"
 	
 	book.input( gets )

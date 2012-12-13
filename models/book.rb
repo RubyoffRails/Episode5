@@ -8,9 +8,9 @@ class Book
 
 	def input(input_string)
 		if input_string.chomp == "A"	
-			@current_page = current_page.options.first
+			@current_page = current_page.option_a
 		elsif input_string.chomp == "B"
-			@current_page = current_page.options.last
+			@current_page = current_page.option_b
 		end
 	end
 
