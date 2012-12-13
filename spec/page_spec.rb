@@ -21,6 +21,17 @@ describe Page do
     Page.find(page.id).preview.should eq("A light appears at the end of the road")
   end
 
+  it "knows if it's a winning page" do
+    page = Page.create(winner: true)
+    page.winner.should be_true
+  end
+   
+  it "is not a winner by default" do
+    Page.create.winner.should eq false
+    # Page.create.winner.should be_false => this passes when it shouldn't.
+    # What's the difference with eq false and be_false?
+  end
+
 	context "#options" do
 		subject {Page.create}
 		let(:option_a) {Page.create(parent_id: subject.id)  }

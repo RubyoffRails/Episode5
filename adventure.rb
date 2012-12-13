@@ -11,21 +11,28 @@ book = Book.new(page)
 
 until book.complete_game? do
 	puts book.current_page.content
-	puts "your options: "
-	puts "A - #{book.current_page.options.first.preview}"
-	puts "B - #{book.current_page.options.last.preview}"
+  option_a = book.current_page.options.first
+  option_b =  book.current_page.options.last
+
+	puts "Your options: "
+	puts "A - #{option_a.preview}"
+	puts "B - #{option_b.preview}"
 	puts "What do you want to do? Enter A or B"
 	
 	book.input( gets )
 
 end
-puts "------------------------------------------"
-puts "|                                        |"
-puts "|                                        |"
-puts "|          ADVENTURE COMPLETE            |"
-puts "|                                        |"
-puts "|                                        |"
-puts "------------------------------------------"
 
-
+puts
 puts book.current_page.content	
+puts
+
+message = book.current_page.winner ? "YOU WIN" : "YOU LOSE"
+
+puts "------------------------------------------"
+puts "|                                        |"
+puts "|                                        |"
+puts "                #{message}                "
+puts "|                                        |"
+puts "|                                        |"
+puts "------------------------------------------"

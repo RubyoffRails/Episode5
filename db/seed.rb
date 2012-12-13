@@ -7,13 +7,34 @@ page = Page.create(starting_point: true,
                           preview: "30 gold pieces would make you rich... But that bacon sandwich smells awfully good!")
 
 # Child pages
-Page.create(conclusion: true, 
+option_a = Page.create(conclusion: false, 
              parent_id: page.id, 
-               content: "You've won 30 pieces of gold!",
-               preview: "some preview for option_a goes here...")
-Page.create(conclusion: true, 
+               content: "You're rich! Or not... You must continue on your journey to cash your gold pieces in...",
+               preview: "A long journey awaits, but it could be worth it...")
+
+option_b = Page.create(conclusion: false, 
              parent_id: page.id, 
-               content: "You ate the bacon sandwich you greedy buggar!",
-               preview: "Some preview for option_b goes here...")
+               content: "You ate the bacon sandwich! Now you're even hungrier! Onwards march...",
+               preview: "Tired and hungry, this could be just what you need!")
 
+Page.create(conclusion: true, 
+             parent_id: option_a.id, 
+               content: "You're seeing things. A bear appears and eats you. YOU DEAD!", 
+               preview: "Walk towards the light... your destiny awaits!")
 
+Page.create(conclusion: true, 
+             parent_id: option_a.id, 
+               content: "It is! You stumble across Bacon Land where bacon is free and everywhere! WIN!",
+               preview: "You smell more bacon... could it be true!?",
+                winner: true)
+
+Page.create(conclusion: true, 
+             parent_id: option_b.id, 
+               content: "No it isn't! FAIL. YOU LOSE!",
+               preview: "You're bacon sandwich it isn't sitting well. Is that a toilet nearby?")
+
+Page.create(conclusion: true, 
+             parent_id: option_b.id, 
+               content: "Well what do ya' know?? YOU WIN!",
+               preview: "A sign appears saying, 'Go this way and you will win big'..",
+                winner: true)
