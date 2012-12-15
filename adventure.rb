@@ -4,32 +4,35 @@ require 'bundler/setup'
 require_relative 'db/setup'
 require_relative 'models/page'
 require_relative 'models/book'
+require_relative 'db/seed'
 
-page = Page.create(starting_point: true, content: "You wake up on a road. It's foggy and dampy. In your bag is 30 gold pieces and a bacon sandwich. Which do you choose?")
-Page.create(conclusion: true, parent_id: page.id, content: "Go into the forest")
-Page.create(conclusion: true, parent_id: page.id, content: "Walk down the road")
-
+page = Page.starting_point
 book = Book.new(page)
 
 until book.complete_game? do
 	puts book.current_page.content
-	puts "your options: "
-	puts "  - [#{book.current_page.options.first.content}]"
-	puts "  - [#{book.current_page.options.last.content}]"
+  option_a = Page.find(book.current_page.options.first)
+  option_b =  Page.find(book.current_page.options.last)
+
+	puts "Your options: "
+	puts "A - #{option_a.preview}"
+	puts "B - #{option_b.preview}"
 	puts "What do you want to do? Enter A or B"
 	
 	book.input( gets )
 
 end
-puts "------------------------------------------"
-puts "|                                        |"
-puts "|                                        |"
-puts "|          ADVENTURE COMPLETE            |"
-puts "|                                        |"
-puts "|                                        |"
-puts "------------------------------------------"
 
-
+puts
 puts book.current_page.content	
+puts
 
-puts "hope you won!"
+message = book.current_page.winner ? "YOU WIN" : "YOU LOSE"
+
+puts "------------------------------------------"
+puts "|                                        |"
+puts "|                                        |"
+puts "                #{message}                "
+puts "|                                        |"
+puts "|                                        |"
+puts "------------------------------------------"
