@@ -30,7 +30,7 @@ option_b = Page.create(conclusion: false,
                content: "You ate the bacon sandwich! Now you're even hungrier! Onwards march...",
                preview: "Tired and hungry, this could be just what you need!",
            option_a_id: option_e.id,
-           option_b_id: option_f.id)
+           option_b_id: option_d.id)
 
 # Current page / starting point
 page = Page.create(starting_point: true,
