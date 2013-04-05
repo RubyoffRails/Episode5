@@ -10,12 +10,12 @@ book = Book.new(Page.starting_point)
 
 until book.complete_game? do
 	puts book.current_page.content
-	puts "your options: "
+	puts "Your options: "
 	puts "  - [#{book.current_page.options.first.preview}]"
 	puts "  - [#{book.current_page.options.last.preview}]"
 	puts "What do you want to do? Enter A or B"
 	
-	book.input( gets.chomp().capitalize )
+	book.input(gets.chomp().capitalize)
 
 end
 puts book.current_page.content	
@@ -29,4 +29,4 @@ puts "|                                        |"
 puts "------------------------------------------"
 
 
-puts "hope you won!"
+puts "Hope you won!"

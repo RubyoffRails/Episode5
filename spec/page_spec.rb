@@ -16,6 +16,11 @@ describe Page do
 		Page.find(page.id).content.should eq("The fox and hound get along")
 	end
 
+	it "should have a preview" do
+		page = Page.create(preview: "Awesome preview")
+		Page.find(page.id).preview.should eq("Awesome preview")
+	end
+
 	context "#options" do
 		subject {Page.create}
 		let(:option_a) {Page.create(parent_id: subject.id)  }
