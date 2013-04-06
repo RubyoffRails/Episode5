@@ -16,11 +16,16 @@ describe Page do
 		Page.find(page.id).content.should eq("The fox and hound get along")
 	end
 
+	it "should have a preview" do
+		page = Page.create(preview: "Awesome preview")
+		Page.find(page.id).preview.should eq("Awesome preview")
+	end
+
 	context "#options" do
-		subject {Page.create}
-		let(:option_a) {Page.create(parent_id: subject.id)  }
-		let(:option_b) {Page.create(parent_id: subject.id)  }
-		let(:option_c) {Page.create(parent_id: subject.id)  }
+		let(:option_a) {Page.create(preview: "Preview for option_a")}
+		let(:option_b) {Page.create(preview: "Preview for option_b") }
+		let(:option_c) {Page.create(preview: "Preview for option_c") }
+		subject {Page.create(option_a_id: option_a.id, option_b_id: option_b.id)}
 
 		it "should have options for the next pages" do
 			subject.options.should eq([option_a, option_b])

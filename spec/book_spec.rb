@@ -1,7 +1,10 @@
 require_relative "spec_helper"
 
 describe Book do
-	let!(:page) {Page.create(starting_point: true)}
+	let!(:option_a) { Page.create }
+	let!(:option_b) { Page.create }
+	let!(:page) {Page.create(starting_point: true, option_a_id: option_a.id, 
+		option_b_id: option_b.id)}
 	subject { Book.new(page) }
 
 	it "should have a page" do
@@ -9,8 +12,6 @@ describe Book do
 	end
 
 	describe "#input" do
-		let!(:option_a) { Page.create(parent_id: page.id)}
-		let!(:option_b) { Page.create(parent_id: page.id)}
 
 		it "should receive input and opens page" do
 			subject.input("A")
