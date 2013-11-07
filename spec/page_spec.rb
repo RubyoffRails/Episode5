@@ -1,13 +1,15 @@
-require "rspec"
-require 'bundler/setup'
-require_relative '../db/setup'
-require_relative "../models/page"
+require_relative "spec_helper"
 
 describe Page do
 
+	before(:each) do
+		Page.delete_all
+	end
+
 	it "should know it's at the end of the road" do
-		subject.conclusion = true
-		subject.end_of_road?.should eq(true)
+		page = Page.create(conclusion: true)
+		page.conclusion?.should be_true
+
 	end
 
 	it "should have awesome content" do
@@ -17,9 +19,9 @@ describe Page do
 
 	context "#options" do	
 		subject {Page.create}
-		let(:option_a) {Page.create(parent_id: subject.id)}
-		let(:option_b) {Page.create(parent_id: subject.id)}
-		let(:option_c) {Pate.create(parent_id: subject.id)}
+		let(:option_a) {Page.create(parent_id: subject.id) }
+		let(:option_b) {Page.create(parent_id: subject.id) }
+		let(:option_c) {Page.create(parent_id: subject.id) }
 
 	it "should have options for the next pages" do
 		subject.options.should eq([option_a, option_b])
@@ -29,9 +31,18 @@ describe Page do
  it "should have a starting point by default" do
  		Page.create.starting_point.should eq(false)
  end
+
  it "should not be a conclusion by default" do
  		Page.create.conclusion.should eq(false)
  end
 
+ it "should have a starting point" do
+ 	the_page = Page.create(starting_point: true)
+ 	Page.starting_point.should eq(the_page)
+
+ end
 end
 
+
+
+ 
