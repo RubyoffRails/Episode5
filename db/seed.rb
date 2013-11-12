@@ -1,11 +1,14 @@
 
+Page.delete_all
+page = Page.create(starting_point: true, preview: 'Adventure road', content: "you wake up on a road. 
+  It's foggy and dampy. In your bag is 30 gold pieces and bacon sandwich. Which do you choose?")
+Page.create(conclusion: true, parent_id: page.id, preview: "Go into the Forest", content: "Omg...you just won 30 bags of gold: WINNER")
+Page.create(conclusion: true, parent_id: page.id, preview: "Sail across the River", content: "Shat...you just got ripped to pieces by a clan of hungry paranas. LOSER")
 
-page = Page.create(starting_point: true, content: "you wake up on a road. 
-  It's foggy and dampy. In your bag is 30 gold pieces and bacon sandwich. 
-  Whihc do you choose?")
+#forrest = Page.create(conclusion: true, id: forrest.id, preview: '', content '')
 
-  Page.create(conclusion: true, parent_id: page.id, content: "WINNER")
-  Page.create(conclusion: true, parent_id: page.id, content: "LOSER")
 
-  # N/A turn the 'your options' into a string. 
 
+
+
+#id: forrest.id
