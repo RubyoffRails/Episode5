@@ -16,6 +16,5 @@ class Book
 
   def complete_game?
   	current_page.conclusion?
-
   end
 end
