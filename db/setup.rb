@@ -13,3 +13,4 @@ ActiveRecord::Base.connection.create_database(connection_details.fetch('database
 ActiveRecord::Base.establish_connection(connection_details)
 # Migrate all the things
 ActiveRecord::Migrator.migrate("db/migrate/")
+
