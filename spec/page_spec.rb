@@ -16,14 +16,19 @@ describe Page do
 		Page.find(page.id).content.should eq("The fox and hound get along")
 	end
 
-	context "#options" do
-		subject {Page.create}
-		let(:option_a) {Page.create(parent_id: subject.id)  }
-		let(:option_b) {Page.create(parent_id: subject.id)  }
-		let(:option_c) {Page.create(parent_id: subject.id)  }
+	it "should have a preview" do
+		page = Page.create(preview: "Step into the forest")
+		expect(Page.find(page.id).preview).to eq("Step into the forest")
+	end
 
+	context "#options" do
+		let(:option_a) {Page.create  }
+		let(:option_b) {Page.create }
+		let(:option_c) {Page.create  }
+		subject {Page.create(option_ids: [option_a, option_b])}
+		
 		it "should have options for the next pages" do
-			subject.options.should eq([option_a, option_b])
+			subject.option_ids.should eq([option_a, option_b])
 		end
 	end
 
