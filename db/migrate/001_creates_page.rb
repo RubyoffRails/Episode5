@@ -4,7 +4,8 @@ class CreatesPage < ActiveRecord::Migration
 			t.text :content
       t.string :preview
       t.string :outcome
-			t.integer :parent_id
+      t.integer :option_a_id
+      t.integer :option_b_id
 			t.boolean :starting_point, default: false
 			t.boolean :conclusion, default: false
 		end
