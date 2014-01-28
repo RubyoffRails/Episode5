@@ -10,6 +10,7 @@ page = Page.starting_point
 book = Book.new(page)
 
 until book.complete_game? do
+  puts "------------------------------------------"
 	puts book.current_page.content
 	puts "your options: "
 	puts "A  - [#{book.current_page.options.first.preview}]"
@@ -17,8 +18,11 @@ until book.complete_game? do
 	puts "What do you want to do? Enter A or B"
 
 	book.input( gets )
-
+  puts "------------------------------------------"
+  puts book.current_page.outcome
+  puts "------------------------------------------"
 end
+puts book.current_page.content
 puts "------------------------------------------"
 puts "|                                        |"
 puts "|                                        |"
@@ -26,6 +30,3 @@ puts "|          ADVENTURE COMPLETE            |"
 puts "|                                        |"
 puts "|                                        |"
 puts "------------------------------------------"
-
-puts book.current_page.outcome
-puts book.current_page.content
