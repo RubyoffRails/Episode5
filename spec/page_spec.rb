@@ -18,12 +18,12 @@ describe Page do
 
 	it "should have a preview" do
 		page = Page.create(preview: "Walk down the road")
-		Page.find(page.id).preview.should eq("Walk down the road")
+		page.preview.should eq("Walk down the road")
 	end
 
 	it "should be clear about being a winner or a loser" do
 		page = Page.create(outcome: "You be dead!")
-		Page.find(page.id).outcome.should eq("You be dead!")
+		page.outcome.should eq("You be dead!")
 	end
 
 	context "#options" do
