@@ -4,7 +4,7 @@ require 'bundler/setup'
 require_relative 'db/setup'
 require_relative 'models/page'
 require_relative 'models/book'
-require "./db/seed"
+require_relative 'db/seed'
 
 page = Page.starting_point
 book = Book.new(page)
