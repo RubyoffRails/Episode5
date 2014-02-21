@@ -1,5 +1,5 @@
 require "rspec"
 require 'bundler/setup'
-require_relative  '../db/setup'
-require_relative "../models/page"
-require_relative "../models/book"
+require_relative  '../lib/adventure_game/db/setup'
+require_relative "../lib/adventure_game/models/page"
+require_relative "../lib/adventure_game/models/book"
