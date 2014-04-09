@@ -2,6 +2,7 @@ require "rubygems"
 require "bundler/setup"
 
 require 'rspec/core/rake_task'
+require 'active_record'
 
 desc 'Default: run specs.'
 task :default => :spec
