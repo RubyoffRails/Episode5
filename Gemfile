@@ -4,5 +4,4 @@ gem 'rake'
 gem 'rspec'
 gem 'activesupport'
 gem 'activerecord'
-gem "sinatra-activerecord"
 gem 'pg'
